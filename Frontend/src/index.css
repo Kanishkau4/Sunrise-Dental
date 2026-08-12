@@ -1,0 +1,20 @@
+/* Google Font matching the uploaded design - must come before other @import rules per CSS spec */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  /* Brand palette taken from the uploaded landing page design */
+  --color-brand-yellow: #FFF4D9;
+  --color-brand-purple: #F3E8FF;
+  --color-brand-blue: #E0F2FE;
+  --color-brand-green: #E2F0D9;
+  --color-brand-lightpurple: #E9D5FF;
+}
+
+body {
+  background-color: #FAFAFA;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}

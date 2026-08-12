@@ -1,0 +1,42 @@
+server:
+  port: 8080   # the backend will run at http://localhost:8080
+
+spring:
+  application:
+    name: dental-clinic
+
+  # --- DATABASE CONFIG ---
+  # Using H2 (an embedded database that lives in a local file) so you don't need to install
+  # PostgreSQL to get started. It behaves like a real SQL database.
+  datasource:
+    url: jdbc:h2:file:./data/dentalclinic;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  # H2's built-in web console, so you can literally see your tables in a browser.
+  # Visit http://localhost:8080/h2-console once the app is running.
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      # "update" = Hibernate will create/alter tables automatically based on your @Entity classes.
+      # Good for coursework. In real production you'd use migration tools like Flyway instead.
+      ddl-auto: update
+    show-sql: true          # prints every SQL query to the console - great for learning what's happening
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+
+# --- JWT CONFIG ---
+# This secret key signs login tokens. In a real app this MUST come from an environment
+# variable, never be committed to Git. For coursework, document this as a security
+# consideration in your report (see the "Ethical" EDGE section of the brief).
+app:
+  jwt:
+    secret: "ReplaceThisWithALongRandomSecretKeyForJWTSigningPurposesOnly123456"
+    expiration-ms: 86400000   # 24 hours

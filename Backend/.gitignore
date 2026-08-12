@@ -1,0 +1,40 @@
+# Target directory (compiled build outputs)
+target/
+*.class
+
+# Database files
+data/
+*.db
+
+# Log files
+*.log
+
+# IntelliJ IDEA project files
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse project files
+.settings/
+.classpath
+.project
+.metadata/
+
+# NetBeans project files
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# OS-specific files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Environment / Sensitive configuration data
+*.properties.local
+*.env
+*.env.local
