@@ -1,20 +1,21 @@
 /* Google Font matching the uploaded design - must come before other @import rules per CSS spec */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Inter", sans-serif;
 
   /* Brand palette taken from the uploaded landing page design */
-  --color-brand-yellow: #FFF4D9;
-  --color-brand-purple: #F3E8FF;
-  --color-brand-blue: #E0F2FE;
-  --color-brand-green: #E2F0D9;
-  --color-brand-lightpurple: #E9D5FF;
+  --color-brand-yellow: #f8e5c1;
+  --color-brand-purple: #ead7ff;
+  --color-brand-blue: #cde4f7;
+  --color-brand-green: #e4f0de;
+  --color-brand-dark: #111111;
+  --color-brand-light: #fbfbfb;
 }
 
 body {
-  background-color: #FAFAFA;
-  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #fbfbfb;
+  font-family: "Inter", sans-serif;
 }
