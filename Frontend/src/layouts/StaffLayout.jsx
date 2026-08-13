@@ -1,20 +1,10 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-/**
- * Shared shell for every logged-in staff page: sidebar nav + top bar + whatever
- * page is currently active (rendered via <Outlet />, React Router's placeholder for
- * "put the matched child route here").
- */
 export default function StaffLayout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  // Brief section 6: "Exit System - Allow users to safely close the application."
-  // In a web app, "closing" the app safely means clearing the session and returning
-  // to a public page - we can't literally close the browser tab from JS in most
-  // browsers (and shouldn't try to - that would be poor UX/an anti-pattern worth
-  // noting if you discuss this design choice in your report).
   const handleExit = () => {
     logout();
     navigate('/');
@@ -27,9 +17,14 @@ export default function StaffLayout() {
     { to: '/help', label: 'Help', icon: '❓' },
   ];
 
+  // Only admins see the "Add Staff" link - matches the backend's
+  // @PreAuthorize("hasRole('ADMIN')") restriction on /api/users.
+  if (user?.role === 'ADMIN') {
+    navItems.push({ to: '/staff', label: 'Add Staff', icon: '👤' });
+  }
+
   return (
     <div className="min-h-screen flex bg-[#FAFAFA]">
-      {/* Sidebar */}
       <aside className="w-64 bg-white border-r border-gray-100 flex flex-col p-6">
         <div className="mb-10">
           <h1 className="text-xl font-bold tracking-tight">Sunrise Dental</h1>
@@ -42,10 +37,9 @@ export default function StaffLayout() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition ${
-                  isActive
-                    ? 'bg-black text-white'
-                    : 'text-gray-600 hover:bg-gray-100'
+                `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition ${isActive
+                  ? 'bg-black text-white'
+                  : 'text-gray-600 hover:bg-gray-100'
                 }`
               }
             >
@@ -70,7 +64,6 @@ export default function StaffLayout() {
         </div>
       </aside>
 
-      {/* Main content area - the active page renders here */}
       <main className="flex-1 p-8 overflow-y-auto">
         <Outlet />
       </main>

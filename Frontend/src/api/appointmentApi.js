@@ -18,6 +18,12 @@ export const getAllAppointments = async () => {
   return response.data;
 };
 
+// GET /api/appointments/search?q= - Search Appointments
+export const searchAppointments = async (query) => {
+  const response = await api.get('/appointments/search', { params: { q: query } });
+  return response.data;
+};
+
 // GET /api/appointments/{appointmentNumber}/bill - Calculate and Print Bill
 export const getBill = async (appointmentNumber) => {
   const response = await api.get(`/appointments/${appointmentNumber}/bill`);

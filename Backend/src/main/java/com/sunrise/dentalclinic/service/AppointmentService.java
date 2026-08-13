@@ -19,11 +19,6 @@ import java.time.LocalDateTime;
 import java.time.Year;
 import java.util.List;
 
-/**
- * Core business logic for appointments: registration, lookup, and billing.
- * This is the heart of Tasks B (system functionality) and demonstrates the
- * Service Layer pattern - all business rules live here, not in the controller.
- */
 @Service
 @RequiredArgsConstructor
 public class AppointmentService {
@@ -32,15 +27,8 @@ public class AppointmentService {
     private final DentistRepository dentistRepository;
     private final TreatmentRepository treatmentRepository;
 
-    // A simple flat tax rate applied to every bill. In a real system this might come
-    // from configuration rather than being hard-coded - worth mentioning as a limitation
-    // in your report's evaluation section.
-    private static final BigDecimal TAX_RATE = new BigDecimal("0.02"); // 2%
+    private static final BigDecimal TAX_RATE = new BigDecimal("0.02");
 
-    /**
-     * Registers a new appointment (brief section 2).
-     * Generates a unique, human-readable appointment number such as APT-2026-0001.
-     */
     public AppointmentResponse registerAppointment(AppointmentRequest request) {
         Dentist dentist = dentistRepository.findById(request.getDentistId())
                 .orElseThrow(() -> new ResourceNotFoundException("Dentist not found"));
@@ -63,9 +51,6 @@ public class AppointmentService {
         return toResponse(saved);
     }
 
-    /**
-     * Brief section 3: "Display Appointment Details - Search using the appointment number."
-     */
     public AppointmentResponse findByAppointmentNumber(String appointmentNumber) {
         Appointment appointment = appointmentRepository.findByAppointmentNumber(appointmentNumber)
                 .orElseThrow(() -> new ResourceNotFoundException(
@@ -79,10 +64,15 @@ public class AppointmentService {
                 .toList();
     }
 
-    /**
-     * Brief section 4: "Calculate and Print Bill".
-     * total = consultation fee + tax, rounded to 2 decimal places (currency-safe rounding).
-     */
+    public List<AppointmentResponse> searchAppointments(String query) {
+        if (query == null || query.isBlank()) {
+            return List.of();
+        }
+        return appointmentRepository.searchByNameOrNumber(query.trim()).stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
     public BillResponse generateBill(String appointmentNumber) {
         Appointment appointment = appointmentRepository.findByAppointmentNumber(appointmentNumber)
                 .orElseThrow(() -> new ResourceNotFoundException(
@@ -105,12 +95,6 @@ public class AppointmentService {
                 .build();
     }
 
-    /**
-     * Generates appointment numbers like APT-2026-0001, APT-2026-0002, ...
-     * Uses the current count of appointments as a simple sequence. Documented assumption:
-     * in a high-concurrency real-world system you'd want a database sequence to avoid
-     * race conditions; for this coursework's scale, counting rows is sufficient and simple.
-     */
     private String generateAppointmentNumber() {
         long count = appointmentRepository.count() + 1;
         int year = Year.now().getValue();

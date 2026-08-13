@@ -9,15 +9,8 @@ import DashboardPage from './pages/DashboardPage';
 import RegisterAppointmentPage from './pages/RegisterAppointmentPage';
 import SearchAppointmentPage from './pages/SearchAppointmentPage';
 import HelpPage from './pages/HelpPage';
+import AddStaffPage from './pages/AddStaffPage';
 
-/**
- * All routing lives here. Structure:
- *   /            -> public homepage (marketing site)
- *   /login       -> public login page
- *   /dashboard, /register, /search, /help
- *                -> staff-only pages, wrapped in ProtectedRoute (redirects to /login
- *                   if not authenticated) AND StaffLayout (shared sidebar shell)
- */
 function App() {
   return (
     <AuthProvider>
@@ -37,6 +30,7 @@ function App() {
             <Route path="/register" element={<RegisterAppointmentPage />} />
             <Route path="/search" element={<SearchAppointmentPage />} />
             <Route path="/help" element={<HelpPage />} />
+            <Route path="/staff" element={<AddStaffPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

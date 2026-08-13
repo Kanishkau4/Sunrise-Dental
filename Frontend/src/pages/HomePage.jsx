@@ -79,22 +79,20 @@ export default function HomePage() {
             <i className={`ph-fill ph-tooth inline-block -rotate-12 transition-colors duration-300 ${scrolled ? 'text-brand-dark' : 'text-white'}`}></i> Sunrise Dental
           </Link>
 
-          <div className={`hidden md:flex items-center gap-8 px-8 py-3 rounded-full text-sm border transition-all duration-300 ${
-            scrolled 
-              ? 'bg-white/40 backdrop-blur-md border-gray-200/50 text-gray-900 shadow-sm' 
-              : 'bg-white/20 backdrop-blur-md border-white/30 text-white'
-          }`}>
+          <div className={`hidden md:flex items-center gap-8 px-8 py-3 rounded-full text-sm border transition-all duration-300 ${scrolled
+            ? 'bg-white/40 backdrop-blur-md border-gray-200/50 text-gray-900 shadow-sm'
+            : 'bg-white/20 backdrop-blur-md border-white/30 text-white'
+            }`}>
             <Link to="/" className="hover:opacity-80 font-medium">Home</Link>
             <a href="#" className="hover:opacity-80 font-medium">About</a>
             <a href="#" className="hover:opacity-80 font-medium">Services</a>
             <Link to="/login" className="hover:opacity-80 font-medium">Staff Login</Link>
           </div>
 
-          <a href="#" className={`px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 transition shadow-lg ${
-            scrolled 
-              ? 'bg-brand-dark text-white hover:bg-gray-800' 
-              : 'bg-white text-gray-900 hover:bg-gray-100'
-          }`}>
+          <a href="#" className={`px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 transition shadow-lg ${scrolled
+            ? 'bg-brand-dark text-white hover:bg-gray-800'
+            : 'bg-white text-gray-900 hover:bg-gray-100'
+            }`}>
             <i className="ph ph-phone"></i> Call Now
           </a>
         </div>
@@ -105,7 +103,7 @@ export default function HomePage() {
         <img src="./hero.jpeg" alt="Dental Care" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
 
-        <div className="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-center pb-20">
+        <div className="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-center pb-20 mt-20">
           <h1 className="text-6xl md:text-8xl font-bold text-white max-w-3xl leading-tight flex flex-wrap items-center gap-x-3 md:gap-x-5 gap-y-2">
             <span className="overflow-hidden inline-block align-bottom pb-2 -mb-2">
               <span
