@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function StaffLayout() {
@@ -11,23 +11,23 @@ export default function StaffLayout() {
   };
 
   const navItems = [
-    { to: '/dashboard', label: 'Dashboard', icon: '🏠' },
-    { to: '/register', label: 'Register Appointment', icon: '📝' },
-    { to: '/search', label: 'Search Appointment', icon: '🔍' },
-    { to: '/help', label: 'Help', icon: '❓' },
+    { to: '/dashboard', label: 'Dashboard', icon: <i className="ph ph-house text-lg"></i> },
+    { to: '/register', label: 'Register Appointment', icon: <i className="ph ph-note-pencil text-lg"></i> },
+    { to: '/search', label: 'Search Appointment', icon: <i className="ph ph-magnifying-glass text-lg"></i> },
+    { to: '/help', label: 'Help', icon: <i className="ph ph-question text-lg"></i> },
   ];
 
   // Only admins see the "Add Staff" link - matches the backend's
   // @PreAuthorize("hasRole('ADMIN')") restriction on /api/users.
   if (user?.role === 'ADMIN') {
-    navItems.push({ to: '/staff', label: 'Add Staff', icon: '👤' });
+    navItems.push({ to: '/staff', label: 'Add Staff', icon: <i className="ph ph-user-plus text-lg"></i> });
   }
 
   return (
     <div className="min-h-screen flex bg-[#FAFAFA]">
       <aside className="w-64 bg-white border-r border-gray-100 flex flex-col p-6">
         <div className="mb-10">
-          <h1 className="text-xl font-bold tracking-tight">Sunrise Dental</h1>
+          <h1 className="text-xl font-bold tracking-tight"><i className="ph ph-tooth inline-block -rotate-12"></i><Link to="/">Sunrise Dental</Link></h1>
           <p className="text-xs text-gray-400 mt-1">Staff Portal</p>
         </div>
 
@@ -58,7 +58,7 @@ export default function StaffLayout() {
             onClick={handleExit}
             className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 transition"
           >
-            <span>🚪</span>
+            <i className="ph ph-sign-out text-lg"></i>
             Exit System
           </button>
         </div>

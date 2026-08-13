@@ -19,3 +19,28 @@ body {
   background-color: #fbfbfb;
   font-family: "Inter", sans-serif;
 }
+
+/* ── Print styles: show only the receipt, hide everything else ── */
+@media print {
+  /* Hide the sidebar layout, nav, search column, buttons */
+  body > * {
+    visibility: hidden;
+  }
+
+  /* Only make the receipt visible */
+  #print-receipt,
+  #print-receipt * {
+    visibility: visible;
+  }
+
+  /* Position the receipt in the top-left of the page */
+  #print-receipt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: white;
+  }
+}
+

@@ -84,8 +84,8 @@ export default function HomePage() {
             : 'bg-white/20 backdrop-blur-md border-white/30 text-white'
             }`}>
             <Link to="/" className="hover:opacity-80 font-medium">Home</Link>
-            <a href="#" className="hover:opacity-80 font-medium">About</a>
-            <a href="#" className="hover:opacity-80 font-medium">Services</a>
+            <Link to="/about" className="hover:opacity-80 font-medium">About</Link>
+            <Link to="/services" className="hover:opacity-80 font-medium">Services</Link>
             <Link to="/login" className="hover:opacity-80 font-medium">Staff Login</Link>
           </div>
 
@@ -213,7 +213,7 @@ export default function HomePage() {
           <div className="bg-brand-purple rounded-[2rem] p-10 flex flex-col justify-between h-[380px] relative lg:col-start-3">
             <div className="flex justify-between items-start">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-black/5">
-                <i className="ph-light ph-cavity text-2xl"></i>
+                <i className="ph-light ph-shield-check text-2xl"></i>
               </div>
               <i className="ph-light ph-plus text-xl text-black/30"></i>
             </div>

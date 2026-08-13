@@ -5,6 +5,8 @@ import StaffLayout from './layouts/StaffLayout';
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
 import DashboardPage from './pages/DashboardPage';
 import RegisterAppointmentPage from './pages/RegisterAppointmentPage';
 import SearchAppointmentPage from './pages/SearchAppointmentPage';
@@ -17,6 +19,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
           <Route path="/login" element={<LoginPage />} />
 
           <Route

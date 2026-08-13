@@ -111,51 +111,65 @@ export default function SearchAppointmentPage() {
           )}
 
           {selected && bill && (
-            <div className="bg-white rounded-[2rem] border border-gray-100 overflow-hidden">
-              <div className="p-6 border-b border-gray-100">
-                <div className="flex justify-between items-start mb-4">
+            <div id="print-receipt">
+              <div className="bg-white rounded-[2rem] border border-gray-100 overflow-hidden">
+
+                {/* Clinic Header — visible on screen and in print */}
+                <div className="flex items-center gap-3 px-6 pt-6 pb-4 border-b border-gray-100">
+                  <div className="w-10 h-10 bg-gray-900 rounded-xl flex items-center justify-center">
+                    <i className="ph-fill ph-tooth text-white text-xl -rotate-12"></i>
+                  </div>
                   <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Appointment</p>
-                    <p className="font-mono font-semibold">{selected.appointmentNumber}</p>
-                  </div>
-                  <span className="bg-brand-green px-3 py-1 rounded-full text-xs font-medium">
-                    {selected.status}
-                  </span>
-                </div>
-
-                <div className="space-y-3 text-sm">
-                  <DetailRow label="Patient Name" value={selected.patientName} />
-                  <DetailRow label="Contact Number" value={selected.contactNumber} />
-                  <DetailRow label="Address" value={selected.address} />
-                  <DetailRow label="Dentist" value={selected.dentistName} />
-                  <DetailRow label="Treatment" value={selected.treatmentName} />
-                  <DetailRow label="Date & Time" value={`${selected.appointmentDate} at ${selected.appointmentTime}`} />
-                </div>
-              </div>
-
-              <div className="p-6 bg-gray-50">
-                <p className="text-xs text-gray-400 uppercase tracking-wide mb-4">Bill / Receipt</p>
-                <div className="space-y-2 text-sm mb-4">
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Consultation Fee</span>
-                    <span className="font-medium">Rs. {bill.consultationFee}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Tax (2%)</span>
-                    <span className="font-medium">Rs. {bill.tax}</span>
-                  </div>
-                  <div className="flex justify-between text-lg font-bold pt-3 border-t border-gray-200">
-                    <span>Total</span>
-                    <span>Rs. {bill.totalAmount}</span>
+                    <p className="font-bold text-base leading-tight">Sunrise Dental</p>
+                    <p className="text-xs text-gray-400">Official Receipt</p>
                   </div>
                 </div>
 
-                <button
-                  onClick={handlePrint}
-                  className="bg-black text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition print:hidden"
-                >
-                  🖨️ Print Bill
-                </button>
+                <div className="p-6 border-b border-gray-100">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Appointment</p>
+                      <p className="font-mono font-semibold">{selected.appointmentNumber}</p>
+                    </div>
+                    <span className="bg-brand-green px-3 py-1 rounded-full text-xs font-medium">
+                      {selected.status}
+                    </span>
+                  </div>
+
+                  <div className="space-y-3 text-sm">
+                    <DetailRow label="Patient Name" value={selected.patientName} />
+                    <DetailRow label="Contact Number" value={selected.contactNumber} />
+                    <DetailRow label="Address" value={selected.address} />
+                    <DetailRow label="Dentist" value={selected.dentistName} />
+                    <DetailRow label="Treatment" value={selected.treatmentName} />
+                    <DetailRow label="Date & Time" value={`${selected.appointmentDate} at ${selected.appointmentTime}`} />
+                  </div>
+                </div>
+
+                <div className="p-6 bg-gray-50">
+                  <p className="text-xs text-gray-400 uppercase tracking-wide mb-4">Bill / Receipt</p>
+                  <div className="space-y-2 text-sm mb-4">
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Consultation Fee</span>
+                      <span className="font-medium">Rs. {bill.consultationFee}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Tax (2%)</span>
+                      <span className="font-medium">Rs. {bill.tax}</span>
+                    </div>
+                    <div className="flex justify-between text-lg font-bold pt-3 border-t border-gray-200">
+                      <span>Total</span>
+                      <span>Rs. {bill.totalAmount}</span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handlePrint}
+                    className="bg-black text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition print:hidden"
+                  >
+                    <i className="ph ph-printer mr-2"></i> Print Bill
+                  </button>
+                </div>
               </div>
             </div>
           )}
