@@ -190,61 +190,71 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-          {/* Decorative text middle vertical */}
-          <div className="hidden lg:block absolute left-1/3 top-1/2 -translate-y-1/2 -rotate-90 origin-center text-xs tracking-widest font-semibold uppercase text-gray-400 z-10">OUR SERVICES</div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
           {/* Card 1 */}
-          <div className="bg-brand-yellow rounded-[2rem] p-10 flex flex-col justify-between h-[380px] relative">
+          <div className="bg-brand-yellow rounded-[2rem] p-10 flex flex-col justify-between h-[380px] relative lg:col-span-7">
             <div className="flex justify-between items-start">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-black/5">
                 <i className="ph-light ph-tooth text-2xl"></i>
               </div>
-              <i className="ph-light ph-plus text-xl text-black/30"></i>
+              <i className="ph-fill ph-sparkle text-xl text-black/10"></i>
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-4">Cavity Protection</h3>
               <p className="text-sm text-black/70 mb-6">As we move into this new era of technology, we tend to look at the future with confidence and pride, which is why our theme.</p>
-              <a href="#" className="font-semibold flex items-center gap-2 hover:opacity-70 transition">Read More <i className="ph ph-arrow-right"></i></a>
+              <a href="#" className="font-semibold inline-flex items-center gap-1 hover:opacity-70 transition text-sm">
+                <span className="underline decoration-1 underline-offset-4">Read More</span> <span>→</span>
+              </a>
             </div>
           </div>
 
+          {/* Decorative text middle vertical line layout in Column 2 */}
+          <div className="hidden lg:flex lg:col-span-1 flex-col items-center justify-center h-full py-6">
+            <div className="w-[1.5px] h-32 bg-gray-200"></div>
+            <span className="my-6 text-xs tracking-[0.2em] font-semibold text-gray-400 uppercase [writing-mode:vertical-lr] rotate-180">our services</span>
+            <div className="w-[1.5px] flex-grow bg-gray-200"></div>
+          </div>
+
           {/* Card 2 */}
-          <div className="bg-brand-purple rounded-[2rem] p-10 flex flex-col justify-between h-[380px] relative lg:col-start-3">
+          <div className="bg-brand-purple rounded-[2rem] p-10 flex flex-col justify-between h-[380px] relative lg:col-span-4">
             <div className="flex justify-between items-start">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-black/5">
                 <i className="ph-light ph-shield-check text-2xl"></i>
               </div>
-              <i className="ph-light ph-plus text-xl text-black/30"></i>
+              <i className="ph-fill ph-sparkle text-xl text-black/10"></i>
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-4">Root Canal Treatment</h3>
               <p className="text-sm text-black/70 mb-6">In the new era of technology we look in the future with certainty and pride, that's why our theme looks so good.</p>
-              <a href="#" className="font-semibold flex items-center gap-2 hover:opacity-70 transition">Read More <i className="ph ph-arrow-right"></i></a>
+              <a href="#" className="font-semibold inline-flex items-center gap-1 hover:opacity-70 transition text-sm">
+                <span className="underline decoration-1 underline-offset-4">Read More</span> <span>→</span>
+              </a>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="bg-brand-blue rounded-[2rem] p-10 flex flex-col justify-between h-[380px] relative">
+          <div className="bg-brand-blue rounded-[2rem] p-10 flex flex-col justify-between h-[380px] relative lg:col-span-4">
             <div className="flex justify-between items-start">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-black/5">
                 <i className="ph-light ph-first-aid text-2xl"></i>
               </div>
-              <i className="ph-light ph-plus text-xl text-black/30"></i>
+              <i className="ph-fill ph-sparkle text-xl text-black/10"></i>
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-4">Oral Surgery</h3>
               <p className="text-sm text-black/70 mb-6">In the new era of technology we look in the future with certainty and pride, that's why our theme looks so good.</p>
-              <a href="#" className="font-semibold flex items-center gap-2 hover:opacity-70 transition">Read More <i className="ph ph-arrow-right"></i></a>
+              <a href="#" className="font-semibold inline-flex items-center gap-1 hover:opacity-70 transition text-sm">
+                <span className="underline decoration-1 underline-offset-4">Read More</span> <span>→</span>
+              </a>
             </div>
           </div>
 
           {/* Card 4 (Video Image) */}
-          <div className="rounded-[2rem] h-[380px] relative overflow-hidden group lg:col-start-3">
+          <div className="rounded-[2rem] h-[380px] relative overflow-hidden group lg:col-span-8">
             <img src="https://plus.unsplash.com/premium_photo-1677178715264-305b9a0fe32b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Video" className="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
             <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-              <div className="w-16 h-16 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white/50 transition">
-                <i className="ph-fill ph-play text-white text-2xl"></i>
+              <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 cursor-pointer hover:bg-white/40 transition">
+                <i className="ph-fill ph-play text-white text-xl ml-1"></i>
               </div>
             </div>
           </div>
@@ -433,14 +443,14 @@ class Spring {
 }
 
 function Loader({ onComplete }) {
-  const [wordmarkY, setWordmarkY] = useState(16);
+  const [toothY, setToothY] = useState(16);
   const [fillScale, setFillScale] = useState(0);
   const [exiting, setExiting] = useState(false);
   const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
-    let wmSpring = new Spring(200, 22, 16);
-    wmSpring.target = 0;
+    let toothSpring = new Spring(180, 20, 16);
+    toothSpring.target = 0;
     let lastTime = performance.now();
     let animationFrameId;
 
@@ -448,8 +458,8 @@ function Loader({ onComplete }) {
       const dt = (time - lastTime) / 1000;
       lastTime = time;
 
-      const y = wmSpring.update(dt);
-      setWordmarkY(y);
+      const y = toothSpring.update(dt);
+      setToothY(y);
 
       animationFrameId = requestAnimationFrame(animateLoader);
     }
@@ -457,9 +467,9 @@ function Loader({ onComplete }) {
 
     const fillTimeout = setTimeout(() => {
       setFillScale(1);
-    }, 120);
+    }, 150);
 
-    const MIN_VISIBLE_MS = 1400;
+    const MIN_VISIBLE_MS = 1600;
     const MAX_VISIBLE_MS = 2600;
     let loadReady = false;
 
@@ -505,23 +515,28 @@ function Loader({ onComplete }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[200] bg-[#0f2f63] text-white flex flex-col items-center justify-center gap-8 transition-transform duration-[850ms] ease-[cubic-bezier(0.645,0.045,0.355,1)] ${exiting ? '-translate-y-[105%]' : 'translate-y-0'}`}
+      className={`fixed inset-0 z-[200] bg-[#0f2f63] text-white flex items-center justify-center transition-transform duration-[850ms] ease-[cubic-bezier(0.645,0.045,0.355,1)] ${exiting ? '-translate-y-[105%]' : 'translate-y-0'}`}
     >
+      {/* Giant Filling Tooth */}
       <div
-        className="flex items-center gap-2 text-2xl font-medium uppercase tracking-[0.2em]"
+        className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 flex items-center justify-center"
         style={{
-          transform: `translateY(${wordmarkY}px)`,
-          opacity: Math.max(0, 1 - (Math.abs(wordmarkY) / 16))
+          transform: `translateY(${toothY}px)`,
+          opacity: Math.max(0, 1 - Math.abs(toothY) / 16),
         }}
       >
-        <i className="ph-fill ph-tooth"></i>
-        <span>Sunrise Dental</span>
-      </div>
-      <div className="w-40 h-[1px] rounded-full bg-white/20 overflow-hidden">
+        {/* Ghost background tooth (unfilled outline/base) */}
+        <i className="ph ph-tooth text-[9rem] sm:text-[11rem] md:text-[13rem] text-white/30 absolute inset-0 flex items-center justify-center -rotate-6 select-none pointer-events-none"></i>
+
+        {/* Foreground filling tooth (fills bottom-to-top) */}
         <div
-          className="w-full h-full bg-white origin-left transition-transform duration-[1280ms] ease-[cubic-bezier(0.645,0.045,0.355,1)]"
-          style={{ transform: `scaleX(${fillScale})` }}
-        ></div>
+          className="absolute inset-0 flex items-center justify-center overflow-hidden transition-[clip-path] duration-[1350ms] ease-[cubic-bezier(0.645,0.045,0.355,1)]"
+          style={{
+            clipPath: `inset(${100 - fillScale * 100}% 0 0 0)`,
+          }}
+        >
+          <i className="ph-fill ph-tooth text-[9rem] sm:text-[11rem] md:text-[13rem] text-white drop-shadow-[0_0_35px_rgba(255,255,255,0.45)] -rotate-6 select-none pointer-events-none"></i>
+        </div>
       </div>
     </div>
   );
