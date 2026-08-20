@@ -11,6 +11,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: Backend # <-- ඔයාගේ Backend folder එකේ exact නම මෙතනට දාන්න (උදා: Backend හෝ backend)
+
     steps:
     - uses: actions/checkout@v4
 
@@ -22,4 +26,4 @@ jobs:
         cache: maven
 
     - name: Test with Maven
-      run: mvn -B test --file pom.xml
+      run: mvn -B test
